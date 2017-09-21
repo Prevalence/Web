@@ -1,18 +1,15 @@
-.idea/workspace.xml  
-.idea/dictionaries/myj.xml  
-.idea/  
-.DS_Store  
-*.classpath  
-*.project  
-.settings  
-.project  
-.target  
+/bin/
+/target/
+# Eclipse Project Files  
+  
 .classpath  
-**/.settings  
-**/.classpath  
-**/.eclipse  
-**/target/  
-target/  
-bin/  
-.svn  
-*.iml
+.project  
+.settings/  
+  
+# IntelliJ IDEA Files  
+  
+*.iml  
+*.ipr  
+*.iws  
+*.idea  
+build/ 
