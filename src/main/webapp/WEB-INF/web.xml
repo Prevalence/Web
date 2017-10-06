@@ -10,8 +10,28 @@
   	<description></description>
   	<servlet-class>web.ServletDemo1</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>EncodingLogin</servlet-name>
+  	<display-name>EncodingLogin</display-name>
+  	<description></description>
+  	<servlet-class>servlet.EncodingLogin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Register</servlet-name>
+  	<display-name>Register</display-name>
+  	<description></description>
+  	<servlet-class>servlet.Register</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ServletDemo1</servlet-name>
   	<url-pattern>/ServletDemo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EncodingLogin</servlet-name>
+  	<url-pattern>/EncodingLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Register</servlet-name>
+  	<url-pattern>/Register</url-pattern>
   </servlet-mapping>
 </web-app>

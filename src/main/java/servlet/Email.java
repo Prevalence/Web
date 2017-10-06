@@ -1,4 +1,4 @@
-package web;
+package servlet;
 
 import java.io.Serializable;
 
