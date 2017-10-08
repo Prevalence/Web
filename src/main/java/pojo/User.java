@@ -30,6 +30,14 @@ public class User {
 		this.password = password;
 	}
 
+	protected void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	protected void setPassword(String password) {
+		this.password = password;
+	}
+
 	public User() {
 		super();
 	}
