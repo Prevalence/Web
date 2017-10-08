@@ -8,7 +8,7 @@ import bl.UserService;
 
 public class test {
 	public static void main(String[] args) {
-		UserService.getImplement().register("谢凯航", "123");
+		UserService.getImplement().register("谢凯", "123");
 		// Connection con;
 		// // 驱动程序名
 		// String driver = "com.mysql.jdbc.Driver";

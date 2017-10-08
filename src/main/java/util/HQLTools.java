@@ -17,10 +17,11 @@ import org.hibernate.cfg.Configuration;
  * @author John 执行HQL的工具类，封装HQL查询语句
  */
 public class HQLTools {
+	// src/main/resources/
 	/**
 	 * 配置对象
 	 */
-	private static Configuration configuration = new Configuration().configure(new File("src/main/resources/hibernate.cfg.xml"));// tomcat用这个
+	private static Configuration configuration = new Configuration().configure("hibernate.cfg.xml");// tomcat用这个
 	// = new Configuration().configure("hibernate.cfg.xml");//tomcat用这个
 	//
 	// = new Configuration().configure(new File("hibernate.cfg.xml"));//跑测试用这个
