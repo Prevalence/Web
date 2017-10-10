@@ -32,18 +32,18 @@ public class EncodingLogin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
+		response.setHeader("Content-type", "text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=utf-8");
 		String userName = (String) request.getParameter("username");
 		String password = (String) request.getParameter("password");
 		PrintWriter out = response.getWriter();
-		out.write("测试中文");
-		// UserService userService = UserService.getImplement();
-		// out.println("用户名为：" + userName);
-		// out.println("加密前密码为：" + password);
-		// out.println("加密后密码为：" + Encrypter.encrypt(password, userName));
-		// out.println("登录结果为：" + userService.login(userName, password));
+
+		UserService userService = UserService.getImplement();
+		out.write("用户名为：" + userName);
+		out.write("加密前密码为：" + password);
+		out.write("加密后密码为：" + Encrypter.encrypt(password, userName));
+		out.write("登录结果为：" + userService.login(userName, Encrypter.encrypt(password, userName)));
 	}
 
 	/**

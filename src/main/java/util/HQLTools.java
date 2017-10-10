@@ -22,9 +22,6 @@ public class HQLTools {
 	 * 配置对象
 	 */
 	private static Configuration configuration = new Configuration().configure("hibernate.cfg.xml");// tomcat用这个
-	// = new Configuration().configure("hibernate.cfg.xml");//tomcat用这个
-	//
-	// = new Configuration().configure(new File("hibernate.cfg.xml"));//跑测试用这个
 	/**
 	 * SessionFactory对象
 	 */

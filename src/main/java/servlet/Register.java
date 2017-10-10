@@ -30,7 +30,9 @@ public class Register extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
+		response.setHeader("Content-type", "text/html;charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String userName = (String) request.getParameter("username");
 		String password = (String) request.getParameter("password");
 		UserService userService = UserService.getImplement();
