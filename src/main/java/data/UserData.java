@@ -1,6 +1,7 @@
 package data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import pojo.User;
 import util.HQLTools;
@@ -12,11 +13,8 @@ public class UserData implements UserDataService {
 		@SuppressWarnings("unchecked")
 		String rightPassword = ((ArrayList<String>) HQLTools
 				.find("select password from User where userName='" + userName + "'")).get(0);
-		System.out.println(password);
-		System.out.println("right:" + rightPassword);
 		if (rightPassword.equals(password))
 			return true;
-
 		return false;
 	}
 
@@ -25,6 +23,12 @@ public class UserData implements UserDataService {
 		User user = new User(userName, password);
 		HQLTools.add(user);
 		return true;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> getUserList() {
+		return (List<User>) (HQLTools.find("from User"));
 	}
 
 }
