@@ -5,15 +5,7 @@
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
 
-	<filter>
-		<filter-name>struts2</filter-name>
-		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
-	</filter>
 
-	<filter-mapping>
-		<filter-name>struts2</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
 
 
 
@@ -24,16 +16,6 @@
 		<display-name>ServletDemo1</display-name>
 		<description></description>
 		<servlet-class>servlet.ServletDemo1</servlet-class>
-		<init-param>
-			<param-name>character</param-name>
-			<param-value>utf-8</param-value>
-		</init-param>
-	</servlet>
-	<servlet>
-		<servlet-name>EncodingLogin</servlet-name>
-		<display-name>EncodingLogin</display-name>
-		<description></description>
-		<servlet-class>servlet.EncodingLogin</servlet-class>
 		<init-param>
 			<param-name>character</param-name>
 			<param-value>utf-8</param-value>
@@ -52,10 +34,6 @@
 	<servlet-mapping>
 		<servlet-name>ServletDemo1</servlet-name>
 		<url-pattern>/ServletDemo1</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>EncodingLogin</servlet-name>
-		<url-pattern>/EncodingLogin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>

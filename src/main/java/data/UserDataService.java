@@ -17,7 +17,7 @@ public interface UserDataService {
 	 * @return UserData对象
 	 */
 	public static UserDataService getImplement() {
-		return new UserData();
+		return UserData.INSTANCE;
 	}
 
 	/**

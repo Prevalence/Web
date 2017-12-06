@@ -6,8 +6,8 @@ import java.util.List;
 import pojo.User;
 import util.HQLTools;
 
-public class UserData implements UserDataService {
-
+public enum UserData implements UserDataService {
+	INSTANCE;
 	@Override
 	public boolean login(String userName, String password) {
 		@SuppressWarnings("unchecked")

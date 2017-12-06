@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +17,7 @@ import util.Encrypter;
 /**
  * Servlet implementation class EncodingLogin
  */
+@WebServlet(initParams = { @WebInitParam(name = "charset", value = "utf-8") }, value = "/EncodingLogin")
 public class EncodingLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -52,7 +55,6 @@ public class EncodingLogin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
