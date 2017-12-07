@@ -7,15 +7,11 @@
 	<constant name="struts.devMode" value="true" />
 
 	<package name="web" extends="struts-default">
-		<action name="EncodingLogin">
-			<result>/register.jsp</result>
-		</action>
-		<action name="test" method="register" class="controller.LoginController">
-			<result name="success" type="redirect">updateUserList</result>
-		</action>
-		<action name="updateUserList" method="updateUserList"
-			class="controller.LoginController">
+		<!-- <action name="test" method="register" class="controller.LoginController"> 
+			<result name="success" type="redirect">updateUserList</result> </action> -->
+		<action name="login" class="action.LoginController">
 			<result name="success">/register.jsp</result>
+			<result name="error">/register.jsp</result>
 		</action>
 	</package>
 
