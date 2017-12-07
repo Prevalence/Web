@@ -5,20 +5,33 @@ import com.opensymphony.xwork2.ActionSupport;
 import bl.UserService;
 import util.Encrypter;
 
-public class LoginController extends ActionSupport {
+public class UserAction extends ActionSupport {
+	/**
+	 * 用于接收form表单传来的userName，由Struts2框架自动注入
+	 */
 	private String userName;
+	/**
+	 * 用于接收form表单传来的password，由Struts2框架自动注入
+	 */
 	private String password;
+
 	private static final long serialVersionUID = 1L;
+
 	private UserService userService = UserService.getImplement();
 
-	@Override
-	public String execute() throws Exception {
+	public String login() throws Exception {
 		System.out.println("userName" + userName);
 		System.out.println("password" + password);
 		if (userService.login(userName, Encrypter.encrypt(password, userName))) {
 			return SUCCESS;
 		}
-		System.out.println("error");
+		return ERROR;
+	}
+
+	public String register() {
+		System.out.println("register");
+		if (userService.register(userName, password))
+			return SUCCESS;
 		return ERROR;
 	}
 
@@ -27,7 +40,6 @@ public class LoginController extends ActionSupport {
 	}
 
 	public void setPassword(String password) {
-		System.out.println("222222222222");
 		this.password = password;
 	}
 

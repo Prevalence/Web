@@ -3,16 +3,12 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
     "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
-
 	<constant name="struts.devMode" value="true" />
-
 	<package name="web" extends="struts-default">
-		<!-- <action name="test" method="register" class="controller.LoginController"> 
-			<result name="success" type="redirect">updateUserList</result> </action> -->
-		<action name="login" class="action.LoginController">
-			<result name="success">/register.jsp</result>
+		<!-- <action name="register" class="action.UserAction"> <result name="success" 
+			type="redirect">login</result> </action> -->
+		<action name="login" method="login" class="action.UserAction">
 			<result name="error">/register.jsp</result>
 		</action>
 	</package>
-
 </struts>

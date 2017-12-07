@@ -6,7 +6,7 @@
 <s:head />
 </head>
 <body>
-	<s:form action="test">
+	<s:form action="register">
 		<s:textfield name="userName" label="UserName" />
 		<s:textfield name="password" label="Password" />
 		<s:submit />
