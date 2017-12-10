@@ -19,13 +19,21 @@ import org.hibernate.cfg.Configuration;
 public class HQLTools {
 	// src/main/resources/
 	/**
-	 * 配置对象
+	 * 主数据库配置对象
 	 */
-	private static Configuration configuration = new Configuration().configure("hibernate.cfg.xml");// tomcat用这个
+	private static Configuration masterConfiguration = new Configuration().configure("hibernateMaster.cfg.xml");// tomcat用这个
 	/**
-	 * SessionFactory对象
+	 * 主数据库SessionFactory对象
 	 */
-	private static SessionFactory sessionFactory = configuration.buildSessionFactory();
+	private static SessionFactory masterSessionFactory = masterConfiguration.buildSessionFactory();
+	/**
+	 * 从数据库配置对象
+	 */
+	private static Configuration slaveConfiguration = new Configuration().configure("hibernateSlave.cfg.xml");
+	/**
+	 * 从数据库SessionFactory对象
+	 */
+	private static SessionFactory slaveSessionFactory = slaveConfiguration.buildSessionFactory();
 
 	/**
 	 * 查询方法
@@ -36,7 +44,7 @@ public class HQLTools {
 	 */
 	@SuppressWarnings("rawtypes")
 	public static List find(String operation) {
-		Session session = sessionFactory.openSession();
+		Session session = slaveSessionFactory.openSession();
 		session.beginTransaction();
 		try {
 			// 利用 session 建立 query
@@ -67,7 +75,7 @@ public class HQLTools {
 	 */
 	public static <T> boolean add(ArrayList<T> objToAdd) {
 		try {
-			Session session = sessionFactory.openSession();
+			Session session = masterSessionFactory.openSession();
 			session.beginTransaction();
 			for (T t : objToAdd) {
 				session.save(t);
@@ -85,7 +93,7 @@ public class HQLTools {
 
 	public static <T> boolean add(T objToAdd) {
 		try {
-			Session session = sessionFactory.openSession();
+			Session session = masterSessionFactory.openSession();
 			session.beginTransaction();
 
 			session.save(objToAdd);
@@ -109,7 +117,7 @@ public class HQLTools {
 	 */
 	public static <T> boolean delete(ArrayList<T> objToDelete) {
 		try {
-			Session session = sessionFactory.openSession();
+			Session session = masterSessionFactory.openSession();
 			session.beginTransaction();
 			for (T t : objToDelete) {
 				session.delete(t);
@@ -127,7 +135,7 @@ public class HQLTools {
 
 	public static <T> boolean delete(T objToDelete) {
 		try {
-			Session session = sessionFactory.openSession();
+			Session session = masterSessionFactory.openSession();
 			session.beginTransaction();
 
 			session.delete(objToDelete);
@@ -152,7 +160,7 @@ public class HQLTools {
 	 */
 	public static <T> boolean update(ArrayList<T> objToUpdate) {
 		try {
-			Session session = sessionFactory.openSession();
+			Session session = masterSessionFactory.openSession();
 			session.beginTransaction();
 			for (T t : objToUpdate) {
 				session.update(t);
@@ -170,7 +178,7 @@ public class HQLTools {
 
 	public static <T> boolean update(T objToUpdate) {
 		try {
-			Session session = sessionFactory.openSession();
+			Session session = masterSessionFactory.openSession();
 			session.beginTransaction();
 
 			session.update(objToUpdate);
@@ -191,12 +199,12 @@ public class HQLTools {
 	 * @return SessionFactory
 	 */
 	public static SessionFactory getSessionFactory() {
-		return sessionFactory;
+		return masterSessionFactory;
 	}
 
 	public static boolean executeQuery(String operation) {
 		try {
-			Session session = sessionFactory.openSession();
+			Session session = masterSessionFactory.openSession();
 			session.beginTransaction();
 
 			@SuppressWarnings("rawtypes")

@@ -10,7 +10,7 @@
 		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
 		<!-- jdbc 的连接 url 和数据库（使用我们之前新建的 hibernate） -->
-		<property name="connection.url">jdbc:mysql://localhost:3306/user?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC</property>
+		<property name="connection.url">jdbc:mysql://47.94.80.5:3307/user?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC</property>
 
 		<!-- 数据库用户名 -->
 		<property name="connection.username">root</property>

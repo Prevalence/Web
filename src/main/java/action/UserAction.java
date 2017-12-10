@@ -34,7 +34,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	public String register() {
 		String userName = user.getUserName();
 		String password = user.getPassword();
-		if (userService.register(userName, password))
+		if (userService.register(userName, Encrypter.encrypt(password, userName)))
 			return SUCCESS;
 		return ERROR;
 	}
