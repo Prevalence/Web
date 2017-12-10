@@ -8,21 +8,11 @@ public class User {
 	/**
 	 * 账户名
 	 */
-
 	private String userName;
 	/**
 	 * 密码（加密后）
 	 */
 	private String password;
-
-	@Id
-	public String getUserName() {
-		return userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
 
 	public User(String userName, String password) {
 		super();
@@ -30,16 +20,25 @@ public class User {
 		this.password = password;
 	}
 
-	protected void setUserName(String userName) {
+	public User() {
+		super();
+	}
+
+	@Id
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-	protected void setPassword(String password) {
-		this.password = password;
+	public String getPassword() {
+		return password;
 	}
 
-	public User() {
-		super();
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }
