@@ -1,12 +1,13 @@
 package action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 
 import bl.UserService;
 import pojo.User;
 import util.Encrypter;
 
-public class UserAction extends ActionSupport {
+public class UserAction extends ActionSupport implements ModelDriven<User> {
 	/**
 	 * 用于接收form表单传来的userName，由Struts2框架自动注入
 	 */
@@ -21,7 +22,7 @@ public class UserAction extends ActionSupport {
 
 	private UserService userService = UserService.getImplement();
 
-	public String login() throws Exception {
+	public String login() {
 		String userName = user.getUserName();
 		String password = user.getPassword();
 		if (userService.login(userName, Encrypter.encrypt(password, userName))) {
@@ -38,12 +39,11 @@ public class UserAction extends ActionSupport {
 		return ERROR;
 	}
 
-	public User getUser() {
+	@Override
+	public User getModel() {
+		if (user == null)
+			user = new User();
 		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	// public String getPassword() {
